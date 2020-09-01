@@ -1,6 +1,7 @@
 {
 	"resource_path": "resources",
 	"pre_processed_path": "pre_processed",
+	"results_path": "results",
 	"n_processors": 10,
 	"resources": {
 		"subtitles": {
@@ -11,7 +12,7 @@
 		"tatoeba": {
 			"lstrip": 1,
 			"rstrip": 0,
-			"chunk_size": 100000
+			"chunk_size": 500000
 		},
 		"test": {
 			"lstrip": 1,
@@ -19,7 +20,7 @@
 			"chunk_size": 26214400
 		}
 	},
-	"frequency_analysis": {
+	"frequency": {
 		"phrase_length": 1,
 		"dest_filename": "{l}_1_word_frequency",
 		"n_most_common": 1000,
@@ -27,16 +28,16 @@
 		"counter_size_limit": 10000,
 		"discard_threshold": 1
 	},
-	"pos_frequency_analysis": {
-		"dest_filename": "{l}}_pos_frequency"
+	"pos_frequency": {
+		"dest_filename": "{l}_pos_frequency"
 	},
-	"specific_collocate_analysis": {
+	"specific_collocate": {
 		"n": 1,
 		"frequency_filename": "{l}_1_word_frequency.csv",
 		"dest_filename": "{l}_1_word_before_collocates",
 		"words_of_interest_filename": "{l}_words_of_interest.txt"
 	},
-	"general_collocate_analysis": {
+	"general_collocate": {
 		"n": 1,
 		"frequency_filename": "{l}_1_word_frequency.csv",
 		"dest_filename": "{l}_general_collocates"

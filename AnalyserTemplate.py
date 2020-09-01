@@ -40,7 +40,8 @@ class AnalyserTemplate:
         
         # load some configs as attributes
         self.resource_folder = os.path.join(self.script_dir, self.configs["resource_path"], self.resource_type, self.language)
-        self.pre_processed_folder = os.path.join(self.resource_folder, self.language + '_' + self.configs["pre_processed_path"])
+        self.pre_processed_folder = os.path.join(self.resource_folder, self.configs["pre_processed_path"])
+        self.results_folder = os.path.join(self.resource_folder, self.configs["results_path"])
         self.chunk_size = self.configs["resources"][self.resource_type]["chunk_size"]
 
     def load_resource(self):
@@ -66,7 +67,7 @@ class AnalyserTemplate:
         """
 
         # get list of files matching pattern
-        files = glob.glob(os.path.join(self.resource_folder, self.language + ".*"))
+        files = os.listdir(self.resource_folder)
 
         # raise error if no files found
         if not files:
@@ -83,7 +84,6 @@ class AnalyserTemplate:
         for filename in files:
 
             self.file_size = os.path.getsize(filename)
-            self.slice_size = self.file_size / 12
 
             # check chunk size
             if self.file_size / self.chunk_size > 500:
@@ -214,8 +214,4 @@ class AnalyserTemplate:
         """
         return sum(count.values())
 
-
-if __name__ == "__main__":
-
-    analyser = RepetitioAnalyserTemplate('es', 'subtitles')
- 
+AnalyserTemplate("en", "tatoeba")
