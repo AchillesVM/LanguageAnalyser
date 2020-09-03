@@ -124,7 +124,3 @@ class PoSFrequency(AnalyserTemplate):
         line = nltk.pos_tag(line)
         for i in range(len(line)-1):
             yield line[i][1], line[i+1][1]
-
-
-
-PoSFrequency("en", "tatoeba").execute()

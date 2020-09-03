@@ -37,7 +37,6 @@ To run an analysis, first confirm the task configurations in config.json, then e
     $ python analyse frequency --dataset tatoeba --language en
     $ python analyse general_collocate -d subtitles -l es
 
-
 ## Supported Languages
 - English
 - Spanish

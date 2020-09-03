@@ -66,8 +66,9 @@ class AnalyserTemplate:
         """Pre-processes the resource file using the multiprocessing library.
         """
 
-        # get list of files matching pattern
-        files = os.listdir(self.resource_folder)
+        # get list of resource files
+        files = [os.path.join(self.resource_folder, f) for f in os.listdir(self.resource_folder)]
+        files = [f for f in files if os.path.isfile(f)]
 
         # raise error if no files found
         if not files:
@@ -213,5 +214,3 @@ class AnalyserTemplate:
             int -- the total count
         """
         return sum(count.values())
-
-AnalyserTemplate("en", "tatoeba")

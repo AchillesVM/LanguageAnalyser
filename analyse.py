@@ -15,7 +15,7 @@ def analyse():
 
     # get arguments
     parser = argparse.ArgumentParser(description="Select the analysis type, language and dataset that you wish to execute...")
-    parser.add_argument(dest="type", choices=["frequency", "pos_frequency", "specific_collocate", "general_collocate"], required=True)
+    parser.add_argument(dest="type", choices=["frequency", "pos_frequency", "specific_collocate", "general_collocate"])
     parser.add_argument("-l", "--language", dest="language", choices=['nl', 'en', 'es', 'de', 'fr', 'pl', 'it', 'no', 'pt', 'sv', 'ru'], required=True)
     parser.add_argument("-d", "--dataset", dest="dataset", required=True)
     args = parser.parse_args()
